@@ -44,8 +44,6 @@ export const getAllActivities = (): Promise<Activity[]> => {
 };
 
 export const addOrUpdateActivity = (activity: Activity): Promise<number> => {
-  console.log('activity', activity);
-
   return new Promise((resolve, reject) => {
     db.transaction(tx => {
       if (activity.id) {

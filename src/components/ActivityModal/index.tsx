@@ -58,7 +58,17 @@ const AddActivity = ({
       );
       return;
     }
-    onSaveActivity(activity);
+
+    const parsedTime = parseFloat(activity.time.replace(',', '.'));
+    if (isNaN(parsedTime)) {
+      Alert.alert(
+        'Erro',
+        'Por favor, insira um valor numérico válido para a hora.',
+      );
+      return;
+    }
+
+    onSaveActivity({ ...activity, time: parsedTime.toString() });
   };
 
   return (
@@ -92,8 +102,9 @@ const AddActivity = ({
                 onChangeText={text => setActivity({ ...activity, date: text })}
               />
               <Input
-                placeholder="Hora"
+                placeholder="Quantidade de horas"
                 value={activity.time}
+                keyboardType="numeric"
                 onChangeText={text => setActivity({ ...activity, time: text })}
               />
               <ButtonContainer>
