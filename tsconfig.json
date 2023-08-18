@@ -1,3 +1,23 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "compilerOptions": {
+    "jsx": "react",
+    "lib": ["es2016"],
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "strictNullChecks": false,
+    "useUnknownInCatchVariables": false,
+    "types": ["jest", "@types/styled-components-react-native"],
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@interface/*": ["./src/interface/*"],
+      "@services/*": ["./src/services/*"],
+    }
+  }
 }
